@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>FileVault Package Properties</comment>
+<entry key="buildCount">1</entry>
+<entry key="version">1.0</entry>
+<entry key="dependencies" />
+<entry key="packageFormatVersion">2</entry>
+<entry key="description">Blognet Package</entry>
+<entry key="group">Blognet</entry>
+<entry key="name">blognet-content</entry>
+<entry key="path">/etc/packages/Blognet/blognet-content-1.0.zip</entry>
+</properties>
