@@ -1,11 +1,11 @@
 <div data-sly-use.list="${'com.ttn.blognet.dto.BlogListing' @ sort='date'}">
 <table border="1">
 <thead>
-<tr><th>Title</th><th>Author</th><th>publishedOn</th><th>Actions</th></tr>
+<tr><th>Title</th><th>Author</th><th>publishedOn</th></tr>
 </thead>
-<tbody>
-<tr data-sly-list.blog="${list.blogs}">
-<td>${blog.title}</td><td>${blog.author}</td><td>${blog.publishedOn}</td><td>edit</td>
+<tbody data-sly-list.blog="${list.blogs}">
+<tr>
+<td><a href="${blog.blogPath}.html">${blog.title}</a></td><td>${blog.author}</td><td>${blog.publishOn}</td>
 </tr>
 </tbody>
 </table>

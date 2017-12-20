@@ -36,7 +36,6 @@ import java.util.*;
 				blogs.add(blog);
 			}
 		}
-		//		System.out.println("Blogs :: " + blogs);
 		return blogs;
 	}
 

@@ -13,8 +13,6 @@ public class BlogView extends WCMUsePojo {
 	public void activate() throws Exception {
 		Resource resource = getResource();
 		blog = new Blog(resource.getValueMap());
-		System.out.println("------->> hee");
-		System.out.println(blog.toString());
 	}
 
 	public Blog getBlog(){

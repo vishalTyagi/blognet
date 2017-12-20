@@ -42,7 +42,6 @@ import java.util.Map;
 		map.put("gender", request.getParameter("gender"));
 		map.put("dob", request.getParameter("dob"));
 		map.put("password", request.getParameter("password"));
-		System.out.println("Password is  =====>> " + map.get("password"));
 		return map;
 	}
 }

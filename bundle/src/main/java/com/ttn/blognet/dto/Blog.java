@@ -20,6 +20,7 @@ public class Blog {
 	private String description;
 	private String[] tags;
 	private Long viewCount;
+	private String blogPath;
 
 	public Blog() {
 		super();
@@ -30,13 +31,20 @@ public class Blog {
 		this.title = (String) valueMap.get("title");
 		this.author = (String) valueMap.get("author");
 		setPublished((Calendar) valueMap.get("cq:lastModified"));
-		//this.tags = (String[]) valueMap.get("cq:tags");
 		this.description = (String) valueMap.get("description");
 		this.viewCount = Long.parseLong((String) valueMap.get("viewCount"));
 	}
 
 	public String getTitle() {
 		return title;
+	}
+
+	public String getBlogPath() {
+		return blogPath;
+	}
+
+	public void setBlogPath(String blogPath) {
+		this.blogPath = blogPath;
 	}
 
 	public void setTitle(String title) {
@@ -92,7 +100,7 @@ public class Blog {
 	}
 
 	public Long getViewCount() {
-		return (viewCount!=null)?viewCount:0l;
+		return (viewCount != null) ? viewCount : 0l;
 	}
 
 	public void setViewCount(Long viewCount) {
