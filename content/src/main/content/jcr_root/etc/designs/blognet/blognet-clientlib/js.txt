@@ -1,0 +1,4 @@
+#base=js
+jquery.min.js
+bootstrap.min.js
+bootstrap-tagsinput.js

@@ -1,6 +1,6 @@
 package com.ttn.blognet.service;
 
-import org.osgi.service.useradmin.User;
+import java.util.Map;
 
 
 /**
@@ -8,6 +8,6 @@ import org.osgi.service.useradmin.User;
  */
 public interface UserService {
 
-	public User createUser();
+	public boolean createUser(Map<String, String> requestMap);
 
 }

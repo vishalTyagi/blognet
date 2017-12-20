@@ -17,21 +17,21 @@ import java.util.*;
  * Created by vishal on 14/12/17.
  */
 @Component(immediate = true) @Service(BlogService.class) public class BlogServiceImpl implements BlogService {
-	@Reference public ResourceResolverFactory resourceResolverFactory;
 
+	@Reference
+	private ResourceResolverFactory resourceResolverFactory;
 	public Iterator<Blog> getBlogs() throws LoginException {
 		return getBlogList().iterator();
 	}
 
 	public List<Blog> getBlogList() throws LoginException {
-		ResourceResolver resourceResolver = resourceResolverFactory.getResourceResolver(getAuth());
-		Resource resource = resourceResolver.getResource("/content/blog");
+		ResourceResolver resourceResolver = getResourceResolver();
+		Resource resource = resourceResolver.getResource("/content/blognet/main/createBlog");
 		Iterator<Resource> iterator = resource.listChildren();
 		List<Blog> blogs = new ArrayList<Blog>();
 		while (iterator.hasNext()) {
 			Resource resource1 = iterator.next();
 			Blog blog = new Blog(resource1.getValueMap());
-			blog.setBlogPath(resource1.getPath());
 			if (blog.getTitle() != null) {
 				blogs.add(blog);
 			}
@@ -45,10 +45,10 @@ import java.util.*;
 			List<Blog> blogs = getBlogList();
 			Collections.sort(blogs, new Comparator<Blog>() {
 				public int compare(Blog o1, Blog o2) {
-					if ("desc".equals(sort)) {
+					if ("date".equals(sort)) {
 						return o2.getPublishedDate().compareTo(o1.getPublishedDate());
 					} else {
-						return o1.getPublishedDate().compareTo(o2.getPublishedDate());
+						return o1.getViewCount().intValue() - o2.getViewCount().intValue();
 					}
 				}
 			});
@@ -74,10 +74,9 @@ import java.util.*;
 		}
 	}
 
-	private HashMap<String, Object> getAuth() {
-		HashMap<String, Object> param = new HashMap<String, Object>();
-		param.put(ResourceResolverFactory.USER, "admin");
-		param.put(ResourceResolverFactory.PASSWORD, "admin".toCharArray());
-		return param;
+	private ResourceResolver getResourceResolver() throws LoginException {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put(ResourceResolverFactory.SUBSERVICE, "blogService");
+		return resourceResolverFactory.getServiceResourceResolver(param);
 	}
 }

@@ -1,0 +1,19 @@
+<div class="row">
+<div class="col-md-4">
+    <a href="/content/blognet/main.html"><span>Blognet</span></a>
+    </div>
+    <div class="col-md-4">
+		<form action="/bin/search" mathod="GET">
+           <input type="text" name="text" placeholder="search here..." />&nbsp;<input type="submit" value="go"/>
+        </form>
+    </div>
+    <div class="col-md-4" data-sly-test="${!currentSession.userID}">
+   		<a href="/content/blognet/main/register.html">Register</a>&nbsp;&nbsp; &nbsp;
+   		<a href="/system/sling/login.html?resource=/content/blognet/main.html">Login</a>
+    </div>
+    <div class="col-md-4" data-sly-test.userId="${currentSession.userID}">
+   		<a href="/content/blognet/main/createBlog.html">create Blog</a>&nbsp;&nbsp; &nbsp;
+        <b>Welcome, ${userId} 
+   		<a href="/system/sling/logout.html?resource=/content/blognet/main.html">Logout</a>
+    </div>
+</div>

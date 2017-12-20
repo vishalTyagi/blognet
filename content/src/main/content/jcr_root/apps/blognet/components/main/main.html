@@ -1,0 +1,16 @@
+<html>
+    <head>
+     <div data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"/>
+	 <div data-sly-call="${clientLib.css @categories='ttn.com.blognet'}"/>
+    </head>
+    <body>
+    <sly data-sly-include="author.html"/>
+    <div class="container">
+  		<div class="panel panel-default">
+   		 <div class="panel-heading"><div data-sly-include="header.html"></div></div>
+    	<div class="panel-body" style="min-height: 70%; max-height: 70%;"><div data-sly-include="content.html"></div></div>
+    	<div class="panel-footer"><div data-sly-include="footer.html"></div></div>
+  </div>
+</div>
+    </body>
+</html>

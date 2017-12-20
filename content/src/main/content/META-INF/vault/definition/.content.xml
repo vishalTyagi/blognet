@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:vlt="http://www.day.com/jcr/vault/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    jcr:description="Blognet Pacakge"
+<jcr:root xmlns:vlt="http://www.day.com/jcr/vault/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:created="{Date}2017-12-15T16:20:57.639+05:30"
+    jcr:createdBy="admin"
+    jcr:description="Maven Multimodule project for Blognet."
+    jcr:lastModified="{Date}2017-12-15T16:20:57.639+05:30"
+    jcr:lastModifiedBy="admin"
     jcr:primaryType="vlt:PackageDefinition"
-    sling:resourceType="cq/packaging/components/pack/definition"
     buildCount="1"
-    cqVersion="6.2"
+    builtWith="Adobe Experience Manager-6.2.0"
     group="Blognet"
+    lastUnwrapped="{Date}2017-12-15T16:20:57.639+05:30"
+    lastUnwrappedBy="admin"
+    lastWrapped="{Date}2017-12-15T16:20:57.639+05:30"
+    lastWrappedBy="admin"
     name="blognet-content"
-    path="/etc/packages/Blognet/blognet-content-1.0"
     version="1.0">
+    <thumbnail.png/>
     <filter jcr:primaryType="nt:unstructured">
         <f0
             jcr:primaryType="nt:unstructured"
             mode="replace"
             root="/apps/blognet"
+            rules="[]"/>
+        <f1
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/etc/designs/blognet"
             rules="[]"/>
     </filter>
 </jcr:root>

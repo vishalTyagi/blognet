@@ -1,0 +1,22 @@
+<div class="row">${properties.title}
+<div class="col-md-8" style="border:1px solid #cecece;min-height: 65%;overflow-y:scroll;" data-sly-use.blogView="${'com.ttn.blognet.dto.BlogView'}"
+data-sly-test.blog="${blogView.blog}">
+		<div class="col-md-offset-4 col-md-8">
+			<h3><span>${blog.title} </span></h3>
+   		</div>
+    	<div class="col-md-offset-1 col-md-10">
+    		<p>${blog.description}</p>
+    	</div>
+        <div class="col-md-offset-1 col-md-10">
+        <div class="col-md-6">
+        	created by: ${blog.author}
+        </div>
+        <div class="col-md-offset-3 col-md-3">
+        	published on: ${blog.publishOn}
+        </div>
+    	</div>
+    </div>
+    <div class="col-md-4" style="border:1px solid #cecece;min-height: 65%;overflow-y:scroll;">
+		<h4> this part is for listing</h4>
+    </div>
+</div>

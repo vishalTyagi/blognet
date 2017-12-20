@@ -5,6 +5,7 @@ import org.apache.sling.api.resource.ValueMap;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -18,7 +19,6 @@ public class Blog {
 	private String publishOn;
 	private String description;
 	private String[] tags;
-	private String blogPath;
 	private Long viewCount;
 
 	public Blog() {
@@ -26,13 +26,13 @@ public class Blog {
 	}
 
 	public Blog(ValueMap valueMap) {
+		super();
 		this.title = (String) valueMap.get("title");
 		this.author = (String) valueMap.get("author");
-		this.publishOn = (String) valueMap.get("publishOn");
-		this.tags = (String[]) valueMap.get("tags");
+		setPublished((Calendar) valueMap.get("cq:lastModified"));
+		//this.tags = (String[]) valueMap.get("cq:tags");
 		this.description = (String) valueMap.get("description");
-		this.viewCount = (Long) valueMap.get("viewCount");
-		//		this.blogPath = (String) valueMap.get("path");
+		this.viewCount = Long.parseLong((String) valueMap.get("viewCount"));
 	}
 
 	public String getTitle() {
@@ -41,14 +41,6 @@ public class Blog {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getBlogPath() {
-		return this.blogPath;
-	}
-
-	public void setBlogPath(String path) {
-		this.blogPath = path;
 	}
 
 	public String getAuthor() {
@@ -73,6 +65,12 @@ public class Blog {
 		}
 	}
 
+	public void setPublished(Calendar published) {
+		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+		String date1 = format1.format(published.getTime());
+		this.publishOn = date1;
+	}
+
 	public void setPublishOn(String publishOn) {
 		this.publishOn = publishOn;
 	}
@@ -94,7 +92,7 @@ public class Blog {
 	}
 
 	public Long getViewCount() {
-		return viewCount != null ? viewCount : 0;
+		return (viewCount!=null)?viewCount:0l;
 	}
 
 	public void setViewCount(Long viewCount) {
@@ -103,6 +101,6 @@ public class Blog {
 
 	@Override public String toString() {
 		return "{" + "title:'" + title + '\'' + ", author:'" + author + '\'' + ", publishOn:'" + publishOn + '\'' + ", description:'" + description + '\'' + ", tags:'" + tags
-				+ '\'' + ", blogPath:'" + blogPath + '\'' + ", viewCount:'" + viewCount + '\'' + '}';
+				+ '\'' + ", viewCount:'" + viewCount + '\'' + '}';
 	}
 }
